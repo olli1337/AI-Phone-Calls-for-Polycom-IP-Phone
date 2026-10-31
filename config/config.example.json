@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "phone_ip": "<PHONE_LAN_IPV4>",
+  "phone_user": "",
+  "phone_sip_port": 5060,
+  "local_ip": "<PC_LAN_IPV4>",
+  "local_sip_port": 5062,
+  "rtp_port": 40000,
+  "rtcp_port": 40001,
+  "answer_timeout_seconds": 30,
+  "max_audio_seconds": 120,
+  "media_ready_timeout_seconds": 5,
+  "shutdown_grace_seconds": 5
+}

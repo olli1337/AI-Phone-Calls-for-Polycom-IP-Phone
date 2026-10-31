@@ -1,0 +1,3 @@
+# Optional speech producer only. These direct dependencies were tested on Windows x64.
+piper-tts==1.8.0
+soxr==0.5.0.post1

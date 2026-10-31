@@ -1,0 +1,38 @@
+name: Windows build and tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: windows-2025
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - name: Build and core tests
+        shell: pwsh
+        run: .\scripts\Build.ps1 -Bootstrap
+      - name: Check C++ formatting
+        shell: pwsh
+        run: |
+          $formatter = Join-Path $env:LOCALAPPDATA 'aiphone-build\msys64\ucrt64\bin\clang-format.exe'
+          $files = (Get-ChildItem src,tests -Recurse -File | Where-Object { $_.Extension -in @('.cpp','.hpp') }).FullName
+          & $formatter --dry-run --Werror $files
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Controlled SIP and RTP tests (no physical phone)
+        shell: pwsh
+        run: |
+          $localAddress = Get-NetIPAddress -AddressFamily IPv4 | Where-Object {
+            $_.AddressState -eq 'Preferred' -and
+            $_.IPAddress -match '^(10\.|192\.168\.|172\.(1[6-9]|2[0-9]|3[01])\.)'
+          } | Select-Object -First 1 -ExpandProperty IPAddress
+          if (-not $localAddress) { throw 'A local private IPv4 is required for the fixture.' }
+          python .\tests\integration.py --exe .\build\aiphone.exe --peer .\build\aiphone_test_peer.exe --ip $localAddress --work-dir .\build\integration
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Package corresponding sources and runtime
+        shell: pwsh
+        run: .\scripts\Package.ps1

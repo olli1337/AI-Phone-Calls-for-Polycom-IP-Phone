@@ -1,0 +1,16 @@
+/build/
+/dist/
+/.cache/
+/config/config.json
+*.wav
+*.mp3
+*.pcap
+*.pcapng
+*.log
+__pycache__/
+.venv/
+CMakeUserPresets.json
+
+# Keep root-level Markdown notes local; README remains public.
+/*.md
+!/README.md

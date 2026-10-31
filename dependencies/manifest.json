@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "name": "pjproject",
+      "version": "2.17",
+      "file": "pjproject.tar.gz",
+      "directory": "pjproject-2.17",
+      "url": "https://codeload.github.com/pjsip/pjproject/tar.gz/refs/tags/2.17",
+      "sha256": "065fe06c06788d97c35f563796d59f00ce52fe9558a52d7b490a042a966facce",
+      "license": "GPL-2.0-or-later"
+    },
+    {
+      "name": "CLI11",
+      "version": "2.5.0",
+      "file": "CLI11.tar.gz",
+      "directory": "CLI11-2.5.0",
+      "url": "https://codeload.github.com/CLIUtils/CLI11/tar.gz/refs/tags/v2.5.0",
+      "sha256": "17e02b4cddc2fa348e5dbdbb582c59a3486fa2b2433e70a0c3bacb871334fd55",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "name": "json",
+      "version": "3.12.0",
+      "file": "json.tar.gz",
+      "directory": "json-3.12.0",
+      "url": "https://codeload.github.com/nlohmann/json/tar.gz/refs/tags/v3.12.0",
+      "sha256": "4b92eb0c06d10683f7447ce9406cb97cd4b453be18d7279320f7b2f025c10187",
+      "license": "MIT"
+    },
+    {
+      "name": "Catch2",
+      "version": "3.8.1",
+      "file": "Catch2.tar.gz",
+      "directory": "Catch2-3.8.1",
+      "url": "https://codeload.github.com/catchorg/Catch2/tar.gz/refs/tags/v3.8.1",
+      "sha256": "18b3f70ac80fccc340d8c6ff0f339b2ae64944782f8d2fca2bd705cf47cadb79",
+      "license": "BSL-1.0",
+      "development_only": true
+    },
+    {
+      "name": "dr_wav",
+      "version": "39ba1ae7945d562ed18db5bba89298343c121222",
+      "file": "dr_wav.h",
+      "url": "https://raw.githubusercontent.com/mackron/dr_libs/39ba1ae7945d562ed18db5bba89298343c121222/dr_wav.h",
+      "sha256": "8f1585bd0141849ed018d07cc7026ac74c12e77d64e662de986cfaeb21b82eb3",
+      "license": "MIT-0"
+    }
+  ],
+  "msys2_base": {
+    "version": "2026-09-27",
+    "file": "msys2-base-x86_64-20260927.tar.xz",
+    "url": "https://github.com/msys2/msys2-installer/releases/download/2026-09-27/msys2-base-x86_64-20260927.tar.xz",
+    "sha256": "ea2f31a0b6ade63914ce441ffb022f0f6aa96982bfefa2326460a26d5fb01322"
+  }
+}
